@@ -108,6 +108,15 @@ plot(missingvalue1,pch=19,col="purple",main="Missing values present",
 ##Locations
 
 ```{r US Map}
+##Rename levels from city to state
+
+levels(ab.dt$city)
+count.st <- levels(ab.dt$city) <- c("NC", "TX", "MA", "FL", "MA", "IL", "NV", "OH", "CO", "HI", "NJ", "CA", "TN", "LA", "NY", "CA", "CA", "OR", "RI", "OR", "CA", "CA", "CA", "CA", "CA", "WA", "MN", "D.C.")
+count.st
+head(ab.dt$city)
+
+##This is where I stopped
+
 count.dt <- ab.dt[, .N, by=.(city)]
 ##TO DO: City change to state
 mUSMap(data=count.dt, key ="city", fill="N")
